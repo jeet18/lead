@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+ 
 
 @Component({
   selector: 'app-addcompany',
   templateUrl: './addcompany.component.html',
   styleUrls: ['./addcompany.component.css']
 })
-export class AddcompanyComponent implements OnInit {
 
-  constructor() { }
+
+export class AddcompanyComponent implements OnInit {
+  
 
   ngOnInit(): void {
+  
   }
-
+  
 }

@@ -14,10 +14,10 @@ export class DataTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<DataTableItem>;
   dataSource: DataTableDataSource;
-
+ 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name','address','phone','age'];
-
+  
   ngOnInit() {
     this.dataSource = new DataTableDataSource();
   }

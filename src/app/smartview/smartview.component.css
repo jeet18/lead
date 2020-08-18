@@ -1,0 +1,40 @@
+.stretch-card{
+    padding-left: 40px;
+    padding-top: 40px;
+}
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+
+  /* Styles for tab labels */
+.mat-tab-label {
+    border-radius: 20%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    
+    background-color: rgb(131, 126, 126)(131, 126, 126);
+    color:black;
+    font-weight: 700;
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+    border-radius: 20%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+   
+    background-color: #e74d4d;
+    color:black;
+    font-weight: 700;
+}
+
+/* Styles for the ink bar */
+.mat-ink-bar {
+    background-color: green;
+}
+
+p {
+  font-family: Lato;
+}

@@ -7,26 +7,19 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 // TODO: Replace this with your own data model type
 export interface DataTableItem {
   name: string;
-  id: number;
-  address: string;
+  company_name: string;
+  email: string;
   phone: number;
-  age: number;
+  city: string;
+  state: string;
+  designation: string;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: DataTableItem[] = [
-  {id: 1, name: 'Hydrogen',address:'delhi', phone: 124558,age:10},
-  {id: 2, name: 'Helium',address:'delhi', phone: 1245588,age:10},
-  {id: 3, name: 'Lithium',address:'delhi', phone: 12455885555,age:10},
-  {id: 4, name: 'Beryllium',address:'delhi', phone: 1245588555,age:10},
-  {id: 5, name: 'Boron', address:'delhi', phone: 1245588775,age:10},
-  {id: 6, name: 'Carbon', address:'delhi', phone: 1245589885,age:10},
-  {id: 7, name: 'Nitrogen', address:'delhi', phone: 1247855885,age:10},
-  {id: 8, name: 'Oxygen', address:'delhi', phone: 1245588885,age:10},
-  {id: 9, name: 'Fluorine', address:'delhi', phone: 1245544885,age:10},
-  {id: 10, name: 'Neon', address:'delhi', phone: 1245589685,age:10},
-  {id: 11, name: 'Sodium', address:'delhi', phone: 124558885,age:10},
-  {id: 12, name: 'Magnesium', address:'delhi', phone: 124559885,age:10}
+  {name: 'jeet', company_name: 'testing',email:'delhi@gmail.com', phone: 12488558,city:'delhi',state:'delhi',designation:''},
+  {name: 'kumar', company_name: 'test',email:'delhi@gmail.com', phone: 12458858,city:'delhi',state:'delhi',designation:''},
+  {name: 'kumar1', company_name: 'Hydrogen',email:'delhi@gmail.com', phone: 1244558,city:'delhi',state:'delhi',designation:''}
   
 ];
 
@@ -92,7 +85,6 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
         case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
         default: return 0;
       }
     });

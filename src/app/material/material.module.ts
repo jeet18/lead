@@ -30,8 +30,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
-
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [],
   imports: [
@@ -65,7 +64,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
@@ -98,7 +98,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule
    
   ],
 })

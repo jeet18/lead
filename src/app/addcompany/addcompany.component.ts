@@ -10,9 +10,19 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 export class AddcompanyComponent implements OnInit {
   
+  
 
   ngOnInit(): void {
   
   }
+  submit(form){
+    var firstName = form.firstName;
+    console.log(firstName);
   
+    var lastName = form.lastName;
+    console.log(lastName);
+  
+    var comment = form.comment;
+    console.log(comment);
+  }
 }

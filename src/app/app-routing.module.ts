@@ -7,6 +7,7 @@ import { AddcompanyComponent } from './addcompany/addcompany.component';
 import { SmartviewComponent } from './smartview/smartview.component';
 import { BookinglistComponent } from './bookinglist/bookinglist.component';
 import { BooknowComponent } from './booknow/booknow.component';
+import { TotalCompanyComponent } from './companies/total-company/total-company.component';
 
 const routes: Routes = [ 
   {
@@ -31,6 +32,9 @@ const routes: Routes = [
 },
 {
   path:'booknow', component:BooknowComponent
+},
+{
+  path:'total_company', component:TotalCompanyComponent
 }
 ];
 

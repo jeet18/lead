@@ -11,25 +11,18 @@ export interface DataTableItem {
   city: string;
   state: string;
   region: string;
-  lead: number;
-  client: string;
-  details: string;
+  
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: DataTableItem[] = [
   {id: 1, name: 'Hydrogen',address:'delhi@example.com', phone: 84755885,city:'delhi',
-  state:'delhi',region:'punjab',lead:15, client:'username', details:'clink on'},
+  state:'delhi',region:'punjab'},
   {id: 2, name: 'Hydrogen',address:'delhi@example.com', phone: 84755885,city:'delhi',
-  state:'delhi',region:'punjab',lead:15, client:'username', details:'clink on'},
-  {id: 3, name: 'Hydrogen',address:'delhi@example.com', phone: 84755885,city:'delhi',
-  state:'delhi',region:'punjab',lead:15, client:'username', details:'clink on'},
-  {id: 4, name: 'Hydrogen',address:'delhi@example.com', phone: 84755885,city:'delhi',
-  state:'delhi',region:'punjab',lead:15, client:'username', details:'clink on'},
-  {id: 5, name: 'Hydrogen',address:'delhi@example.com', phone: 84755885,city:'delhi',
-  state:'delhi',region:'punjab',lead:15, client:'username', details:'clink on'},
+  state:'delhi',region:'punjab'},
+  
   {id: 6, name: 'Hydrogen',address:'delhi@example.com', phone: 84755885,city:'delhi',
-  state:'delhi',region:'punjab',lead:15, client:'username', details:'clink on'},
+  state:'delhi',region:'punjab'},
   
   
 ];
@@ -39,13 +32,13 @@ const EXAMPLE_DATA: DataTableItem[] = [
   styleUrls: ['./companies.component.css']
 })
 export class CompaniesComponent implements OnInit {
-  displayedColumns = ['id', 'name','address','phone','city','state','region','lead','client','details'];
+  displayedColumns = ['name','address','phone','city','state','region','lead','client','details'];
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource(EXAMPLE_DATA); 
   
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.dataSource.sort = this.sort;
   }
   applyFilter(filterValue:string){

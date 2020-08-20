@@ -81,6 +81,7 @@ export class DataTableDataSource extends DataSource<DataTableItem> {
       return data;
     }
 
+
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {

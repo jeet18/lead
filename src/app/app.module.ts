@@ -16,7 +16,8 @@ import { BooknowComponent } from './booknow/booknow.component';
 import {MaterialModule} from './material/material.module';
 import {HttpClientModule} from '@angular/common/http';
 import { TotalCompanyComponent } from './companies/total-company/total-company.component';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatNativeDateModule} from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,9 @@ import { TotalCompanyComponent } from './companies/total-company/total-company.c
     BrowserAnimationsModule,
     HeadersModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

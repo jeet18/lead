@@ -14,6 +14,9 @@ import { SmartviewComponent } from './smartview/smartview.component';
 import { BookinglistComponent } from './bookinglist/bookinglist.component';
 import { BooknowComponent } from './booknow/booknow.component';
 import {MaterialModule} from './material/material.module';
+import {BookservService} from './services/bookserv.service';
+import {HttpClientModule} from '@angular/common/http';
+import {CourseResolver} from "./services/course.resolver";
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,9 +34,10 @@ import {MaterialModule} from './material/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HeadersModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [BookservService,CourseResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

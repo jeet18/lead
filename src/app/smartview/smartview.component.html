@@ -4,7 +4,67 @@
         <h4 class="card-title">Lead</h4>
         <button mat-raised-button color="primary">Add New Lead</button><br/><br/>
         <mat-tab-group animationDuration="2000ms">
-            <mat-tab label="First">Content 1</mat-tab>
+            <mat-tab label="First">
+              <div class="course">
+
+              
+            
+                <img class="course-thumbnail" [src]="course?.iconUrl">
+            
+                <mat-form-field>
+            
+                    <input matInput placeholder="Search lessons" #input>
+            
+                </mat-form-field>
+            
+                <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+            
+                    <mat-spinner></mat-spinner>
+            
+                </div>
+            
+                <mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource"
+                           matSort matSortActive="seqNo" matSortDirection="asc" matSortDisableClear>
+            
+                    <ng-container matColumnDef="seqNo">
+            
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+            
+                        <mat-cell *matCellDef="let lesson">{{lesson.seqNo}}</mat-cell>
+            
+                    </ng-container>
+            
+                    <ng-container matColumnDef="description">
+            
+                        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+            
+                        <mat-cell class="description-cell"
+                                  *matCellDef="let lesson">{{lesson.description}}</mat-cell>
+            
+                    </ng-container>
+            
+                    <ng-container matColumnDef="duration">
+            
+                        <mat-header-cell *matHeaderCellDef>Duration</mat-header-cell>
+            
+                        <mat-cell class="duration-cell"
+                                  *matCellDef="let lesson">{{lesson.duration}}</mat-cell>
+            
+                    </ng-container>
+            
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            
+                    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+            
+                </mat-table>
+            
+            
+                <mat-paginator [length]="course?.lessonsCount" [pageSize]="3"
+                               [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
+            
+            
+            </div>
+            </mat-tab>
             <mat-tab label="Second">Content 2</mat-tab>
             <mat-tab label="Third">Content 3</mat-tab>
           </mat-tab-group>

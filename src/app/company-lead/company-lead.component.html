@@ -1,0 +1,111 @@
+<div class="container-fluid page-body-wrapper">
+  <div class="main-panel">
+  <div class="content-wrapper">
+     <div class="row">
+        <div class="col-12 grid-margin">
+           <div class="card">
+              <div class="card-body">
+                 <h4 class="card-title">New Lead from <font color="blue"> A J ENTERPRISES</font></h4>
+                 <form method="POST" action="">
+                    <div class="row">
+                       <div class="form-group col-sm-4">
+                          <label for="company_name">Point of Contact:</label>
+                          <select class="form-control" id="customer_name" placeholder="Enter Company Name" name="customer_name" required="">
+                             <option value="">Point of Contect</option>
+                             <option value="1"> Sudhindra pandey</option>
+                          </select>
+                       </div>
+                       <div class="form-group col-sm-4">
+                          <label for="company_name">Product:</label>
+                          <select class="form-control" id="product" placeholder="Enter Company Name" name="product" required="">
+                             <option value="">Select Product</option>
+                             <option value="370"> Aerocompact</option>
+                             <option value="23"> Canadian Solar</option>
+                             <option value="418"> Dealership</option>
+                             <option value="207"> Enphase</option>
+                             <option value="88"> Fronius</option>
+                             <option value="94"> Goodwe</option>
+            
+                          </select>
+                       </div>
+                       <div class="form-group col-sm-4">
+                          <label for="company_name">Product Size:</label>
+                          <select class="form-control" id="exp_project_size" placeholder="Enter Company Name" name="exp_project_size" required="">
+                             <option value="">Select Product Size</option>
+                             <option value="1"> 1 - 50 KW</option>
+                             <option value="2"> 50 - 100 KW</option>
+                             <option value="3"> 100 - 200 KW</option>
+                             <option value="4"> 200 - 500 KW</option>
+                             <option value="5"> 500 - 1000 KW</option>
+                             <option value="6"> 1000 - More KW</option>
+                          </select>
+                       </div>
+                    </div>
+                    <div class="row">
+                       <div class="form-group col-sm-8">
+                          <label for="customer_name">Requirement Description:</label>
+                          <textarea type="text" class="form-control" id="req_description" placeholder="Enter Customer Name" name="req_description" required=""></textarea>
+                       </div>
+                       <div class="form-group col-sm-4">
+                          <label for="mobile">Owner:</label>
+                          <select class="form-control" id="owner" placeholder="Enter Company Name" name="owner" required="">
+                             <option value="">Select Owner</option>
+                             <option value="1"> Abhishek</option>
+                             <option value="2"> Anishaa Paul</option>
+                             <option value="3"> Varun Raj</option>
+                             <option value="4"> Aashish Berry</option>
+                             <option value="5"> Richard</option>
+                             <option value="6"> Ronald</option>
+                             <option value="7"> Harrish</option>
+                             <option value="8"> Ajin</option>
+                             <option value="9"> Pooja</option>
+                      
+                          </select>
+                       </div>
+                    </div>
+                    <div class="row">
+                       <div class="form-group col-sm-4">
+                          <label for="mobile">Expected Closure Date:</label>
+                          <input type="date" class="form-control" id="closure_date" placeholder="Enter Mobile No." name="closure_date">
+                       </div>
+                       <div class="form-group col-sm-4">
+                          <label for="company_name">Next Follow Up:</label>
+                          <input type="date" class="form-control" id="next_follow_up" placeholder="Enter Company Name" name="next_follow_up" required="" >
+                       </div>
+                       <input type="hidden" value="pending" name="status">
+                       <div class="form-group col-sm-4">
+                          <label for="mobile">Priority:</label>
+                          <select class="form-control" id="priority"  name="priority">
+                             <option value="">Select One</option>
+                             <option value="High">High</option>
+                             <option value="Medium">Medium</option>
+                             <option value="Low">Low</option>
+                             <option value="Dead">Dead</option>
+                          </select>
+                       </div>
+                    </div>
+                    <div class="row">
+                       <div class="form-group col-sm-4">
+                          <label for="gstin">Recently Using Product</label>
+                          <input type="text" class="form-control" id="recent_product" placeholder="Enter Recently Using Product" name="recent_product">
+                       </div>
+                       <div class="form-group col-sm-4">
+                          <label for="pan">Product Size</label>
+                          <input type="text" class="form-control" id="recent_product_size" placeholder="Enter Product Size" name="recent_product_size">
+                       </div>
+                    </div>
+                    <div class="row">
+                       <div class="form-group col-sm-12">
+                          <label for="remark">Remark</label>
+                          <textarea class="form-control" name="remark" rows="3" id="remark"></textarea>
+                       </div>
+                    </div>
+                    <input type="button" class="btn btn-danger" value="Close" onclick="document.location.href ='http://sunlightinabox.com/leadsquared/Admin/companies.php'" />
+                    <button type="submit" class="btn btn-success" name="submit" >Submit</button>
+                   
+                 </form>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>

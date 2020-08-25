@@ -1,0 +1,33 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+    padding-left: 20px;
+  }
+  
+  .btn {
+    color: #212529;
+    background-color: #0ad7f7;
+    border-color: #0ad7f7;
+   width: 200px;
+   font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .btn:hover{
+    color:white;
+    background-color: #5e9ada;
+    border-color: #5e9ada;
+   width: 200px;
+   font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .example-full-width {
+    width: 85%;
+  }
+  .inputb{
+      width: 100%;
+      color: blue;
+  }

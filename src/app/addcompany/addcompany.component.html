@@ -1,0 +1,138 @@
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+          
+        <div class="col-lg-12 grid-margin stretch-card">
+         <div class="card" >
+            <div class="card-body">
+            <h5 class="card-title">Add New Company</h5>
+            <form #contactForm="ngForm" (ngSubmit)="submit(contactForm.value)">
+        <div class="row">
+            
+            <div class="form-group col-sm-3">
+                <label for="cname">Company Name <span style="color: red;">*</span></label>
+                <input required minlength="3" maxlength="10" ngModel name="cname" type="text" #cname="ngModel" class="form-control" id="cname">
+                <div class="alert alert-danger" *ngIf="cname.touched && !cname.valid">
+                    <div *ngIf="cname.errors.required">Name is required.</div>
+                </div>
+            </div>
+           
+                <div class="form-group col-sm-3">
+                    <label for="email">Company Email</label>
+                    <input required ngModel name="email" type="text" #email="ngModel" class="form-control" id="email">
+                </div>
+   
+                <div class="form-group col-sm-3">
+                    <label for="email2">Email Id 2</label>
+                     <input required ngModel name="email2" type="text" #email2="ngModel" class="form-control" id="email2">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="mobile1">Mobile No. 1 <span style="color: red;">*</span></label>
+                     <input required ngModel name="mobile1" type="text" #mobile1="ngModel" class="form-control" id="mobile1">
+                     <div class="alert alert-danger" *ngIf="mobile1.touched && !mobile1.valid">
+                        <div *ngIf="mobile1.errors.required">Mobile number is required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-3">
+                    <label for="mobile2">Mobile No. 2</label>
+                    <input required ngModel name="mobile2" type="text" #mobile2="ngModel" class="form-control" id="mobile2">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="gstn">GSTN</label>
+                     <input required ngModel name="gstn" type="text" #gstn="ngModel" class="form-control" id="gstn">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="pan_no">PAN No.</label>
+                     <input required ngModel name="pan_no" type="text" #pan_no="ngModel" class="form-control" id="pan_no">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="leadsource">Lead Source <span style="color: red;">*</span></label>
+                     <input required ngModel name="leadsource" type="text" #leadsource="ngModel" class="form-control" id="leadsource">
+                     <div class="alert alert-danger" *ngIf="leadsource.touched && !leadsource.valid">
+                        <div *ngIf="leadsource.errors.required">Lead source is required.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-9">
+                    <label for="address">Address</label>
+                     <input required ngModel name="address" type="text" #address="ngModel" class="form-control" id="address">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="area">Area</label>
+                     <input required ngModel name="area" type="text" #area="ngModel" class="form-control" id="area">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-sm-3">
+                    <label for="state">State <span style="color: red;">*</span></label>
+                     <input required ngModel name="state" type="text" #state="ngModel" class="form-control" id="state">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="city">City <span style="color: red;">*</span></label>
+                     <input required ngModel name="city" type="text" #city="ngModel" class="form-control" id="city">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="region">Region <span style="color: red;">*</span></label>
+                     <input required ngModel name="region" type="text" #region="ngModel" class="form-control" id="region">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="zip">Zip Code</label>
+                     <input required ngModel name="zip" type="text" #zip="ngModel" class="form-control" id="zip">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-3">
+                    <label for="website">Website</label>
+                     <input required ngModel name="website" type="text" #website="ngModel" class="form-control" id="website">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="owner">Owner <span style="color: red;">*</span></label>
+                     <input required ngModel name="owner" type="text" #owner="ngModel" class="form-control" id="owner">
+                </div>
+            </div>
+            <h5 class="card-title">Add Contact Person Details</h5>
+            
+            <div class="row">
+                <div class="form-group col-sm-3">
+                    <label for="contact_name">Name <span style="color: red;">*</span></label>
+                     <input required ngModel name="contact_name" type="text" #contact_name="ngModel" class="form-control" id="contact_name">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="contact_email">Email Id</label>
+                     <input required ngModel name="contact_email" type="text" #contact_email="ngModel" class="form-control" id="contact_email">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="contact_email2">Email Id 2</label>
+                     <input required ngModel name="contact_email2" type="text" #contact_email2="ngModel" class="form-control" id="contact_email2">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="contact_phone">Mobile No. 1 </label>
+                     <input required ngModel name="contact_phone" type="text" #contact_phone="ngModel" class="form-control" id="contact_phone">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-sm-3">
+                    <label for="contact_phone2">Mobile No. 2 </label>
+                     <input required ngModel name="contact_phone2" type="text" #contact_phone2="ngModel" class="form-control" id="contact_phone2">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="contact_desig">Designation </label>
+                     <input required ngModel name="contact_desig" type="text" #contact_desig="ngModel" class="form-control" id="contact_desig">
+                </div>
+            </div>
+                <button class="btn btn-primary" type="submit" [class.disabled]="!contactForm.valid">Submit</button>
+  
+            </form>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

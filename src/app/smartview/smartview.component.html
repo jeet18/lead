@@ -1,0 +1,469 @@
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lead</h4>
+        <button mat-raised-button color="primary">Add New Lead</button><br/><br/>
+
+        <mat-tab-group animationDuration="2000ms">
+  
+        <!-- Total Lead here -->
+    <mat-tab label="Total Leads">
+                 <div class="mat-elevation-z8">
+                 
+                <div class="row">
+                  <div class="col-lg-2">
+                      <mat-form-field>
+                        <mat-label>Search</mat-label>
+                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search" #input>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-lg-2" >
+                      <mat-form-field class="example-full-width">
+                      <input matInput [matDatepicker]="dp1" placeholder="Choose a date">
+                          <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                          <mat-datepicker #dp1></mat-datepicker>
+                      </mat-form-field>
+                  </div><br/>
+                  <div class="col-lg-2">
+                      <mat-form-field appearance="fill" class="inputb">
+                          <mat-label>Region</mat-label>
+                          <mat-select disableRipple>
+                          <mat-option value="1" >Maharashtra</mat-option>
+                          <mat-option value="2">Delhi</mat-option>
+                          <mat-option value="3">Up/Punjab</mat-option>
+                          <mat-option value="3">Rajesthan</mat-option>
+                          <mat-option value="3">South</mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-lg-2">
+                      <mat-form-field appearance="fill" class="inputb">
+                          <mat-label>Source</mat-label>
+                          <mat-select disableRipple>
+                          <mat-option value="1" >Email</mat-option>
+                          <mat-option value="2">Facebook</mat-option>
+                          <mat-option value="3">You tube</mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-lg-2">
+                      <mat-form-field appearance="fill" class="inputb">
+                          <mat-label>Manufacturer</mat-label>
+                          <mat-select disableRipple>
+                          <mat-option value="1" >Canadian Solar</mat-option>
+                          <mat-option value="2">Renewsys</mat-option>
+                          <mat-option value="3">Fronius</mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </div>
+                  <div class="col-lg-2">
+                      <mat-form-field appearance="fill" class="inputb">
+                          <mat-label>Sales Person</mat-label>
+                          <mat-select disableRipple>
+                          <mat-option value="1" >Amit sharma</mat-option>
+                          <mat-option value="2">Anisha Paul</mat-option>
+                          <mat-option value="3">Bijoy</mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                  </div>
+              </div>
+                <table mat-table [dataSource]="dataSource" matSort>
+                  <!-- Name Column -->
+                    <ng-container matColumnDef="company_name">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+                      <td mat-cell *matCellDef="let row"> {{row.company_name}} </td>
+                    </ng-container>
+              
+                  <!-- Color Column -->
+                  <ng-container matColumnDef="product">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                    <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.product}} </td>
+                  </ng-container>
+                <!-- Progress Column -->
+                <ng-container matColumnDef="product_size">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Size </th>
+                    <td mat-cell *matCellDef="let row"> {{row.product_size}} </td>
+                </ng-container>
+                <!-- Progress Column -->
+                <ng-container matColumnDef="product_dis">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Description</th>
+                    <td mat-cell *matCellDef="let row"> {{row.product_dis}} </td>
+                </ng-container>
+  
+                <ng-container matColumnDef="nextFollowUp">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> NextFollowUp </th>
+                    <td mat-cell *matCellDef="let row"> {{row.nextFollowUp}} </td>
+                </ng-container>
+                    <ng-container matColumnDef="status">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                      <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="priorty">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Priorty </th>
+                    <td mat-cell *matCellDef="let row"> {{row.priorty}} </td>
+                </ng-container>
+                    <ng-container matColumnDef="owner">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> owner </th>
+                      <td mat-cell *matCellDef="let row"> {{row.owner}} </td>
+                  </ng-container>
+  
+                    <ng-container matColumnDef="action">
+                      <th mat-header-cell *matHeaderCellDef> Active </th>
+                      <td mat-cell *matCellDef="let element" class="action-link"> 
+                        <a class="btn-sm btn-info" [routerLink]="['/activity-details']" style="padding-left: 10px;">Activity</a>    
+                      </td>
+                    </ng-container>
+  
+            
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              
+                  <!-- Row shown when there is no matching data. -->
+                  <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                  </tr>
+                </table>
+              
+                <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+              </div>
+      </mat-tab>
+           <!-- New lead here -->
+    <mat-tab label="New Leads">
+              <div class="mat-elevation-z8">
+                <mat-form-field>
+                  <mat-label>Search</mat-label>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search" #input>
+              </mat-form-field>
+              <table mat-table [dataSource]="dataSource" matSort>
+                <!-- Name Column -->
+                  <ng-container matColumnDef="company_name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.company_name}} </td>
+                  </ng-container>
+            
+                <!-- Color Column -->
+                <ng-container matColumnDef="product">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                  <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.product}} </td>
+                </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_size">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Size </th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_size}} </td>
+              </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_dis">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Description</th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_dis}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nextFollowUp">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> NextFollowUp </th>
+                  <td mat-cell *matCellDef="let row"> {{row.nextFollowUp}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                </ng-container>
+                <ng-container matColumnDef="priorty">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Priorty </th>
+                  <td mat-cell *matCellDef="let row"> {{row.priorty}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="owner">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> owner </th>
+                    <td mat-cell *matCellDef="let row"> {{row.owner}} </td>
+                </ng-container>
+
+                  <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Active </th>
+                    <td mat-cell *matCellDef="let element" class="action-link"> 
+                      <a class="btn-sm btn-info" [routerLink]="['/activity-details']" style="padding-left: 10px;">Activity</a>   
+                    </td>
+                  </ng-container>
+
+          
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+              </table>
+            
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </div>
+    </mat-tab>
+        <!-- Active lead here -->
+    <mat-tab label="Active Leads">
+              <div class="mat-elevation-z8">
+                <mat-form-field>
+                  <mat-label>Search</mat-label>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search" #input>
+              </mat-form-field>
+              <table mat-table [dataSource]="dataSource" matSort>
+                <!-- Name Column -->
+                  <ng-container matColumnDef="company_name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.company_name}} </td>
+                  </ng-container>
+            
+                <!-- Color Column -->
+                <ng-container matColumnDef="product">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                  <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.product}} </td>
+                </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_size">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Size </th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_size}} </td>
+              </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_dis">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Description</th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_dis}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nextFollowUp">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> NextFollowUp </th>
+                  <td mat-cell *matCellDef="let row"> {{row.nextFollowUp}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                </ng-container>
+                <ng-container matColumnDef="priorty">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Priorty </th>
+                  <td mat-cell *matCellDef="let row"> {{row.priorty}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="owner">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> owner </th>
+                    <td mat-cell *matCellDef="let row"> {{row.owner}} </td>
+                </ng-container>
+
+                  <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Active </th>
+                    <td mat-cell *matCellDef="let element" class="action-link"> 
+                      <a class="btn-sm btn-info" [routerLink]="['/activity-details']" style="padding-left: 10px;">Activity</a> 
+                    </td>
+                  </ng-container>
+
+          
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+              </table>
+            
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </div>
+      </mat-tab>
+            <!-- Pending lead here -->
+      <mat-tab label="Pending Leads">
+              <div class="mat-elevation-z8">
+                <mat-form-field>
+                  <mat-label>Search</mat-label>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search" #input>
+              </mat-form-field>
+              <table mat-table [dataSource]="dataSource" matSort>
+                <!-- Name Column -->
+                  <ng-container matColumnDef="company_name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.company_name}} </td>
+                  </ng-container>
+            
+                <!-- Color Column -->
+                <ng-container matColumnDef="product">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                  <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.product}} </td>
+                </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_size">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Size </th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_size}} </td>
+              </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_dis">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Description</th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_dis}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nextFollowUp">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> NextFollowUp </th>
+                  <td mat-cell *matCellDef="let row"> {{row.nextFollowUp}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                </ng-container>
+                <ng-container matColumnDef="priorty">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Priorty </th>
+                  <td mat-cell *matCellDef="let row"> {{row.priorty}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="owner">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> owner </th>
+                    <td mat-cell *matCellDef="let row"> {{row.owner}} </td>
+                </ng-container>
+
+                  <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Active </th>
+                    <td mat-cell *matCellDef="let element" class="action-link"> 
+                      <a class="btn-sm btn-info" [routerLink]="['/activity-details']" style="padding-left: 10px;">Activity</a>  
+                    </td>
+                  </ng-container>
+
+          
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+              </table>
+            
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </div>
+        </mat-tab>
+            
+            <!-- Closed lead -->
+      <mat-tab label="Closed Leads">
+              <div class="mat-elevation-z8">
+                <mat-form-field>
+                  <mat-label>Search</mat-label>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search" #input>
+              </mat-form-field>
+              <table mat-table [dataSource]="dataSource" matSort>
+                <!-- Name Column -->
+                  <ng-container matColumnDef="company_name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.company_name}} </td>
+                  </ng-container>
+            
+                <!-- Color Column -->
+                <ng-container matColumnDef="product">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                  <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.product}} </td>
+                </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_size">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Size </th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_size}} </td>
+              </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_dis">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Description</th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_dis}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nextFollowUp">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> NextFollowUp </th>
+                  <td mat-cell *matCellDef="let row"> {{row.nextFollowUp}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                </ng-container>
+                <ng-container matColumnDef="priorty">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Priorty </th>
+                  <td mat-cell *matCellDef="let row"> {{row.priorty}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="owner">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> owner </th>
+                    <td mat-cell *matCellDef="let row"> {{row.owner}} </td>
+                </ng-container>
+
+                  <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Active </th>
+                    <td mat-cell *matCellDef="let element" class="action-link"> 
+                      <a class="btn-sm btn-info" [routerLink]="['/activity-details']" style="padding-left: 10px;">Activity</a>   
+                    </td>
+                  </ng-container>
+
+          
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+              </table>
+            
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </div>
+      </mat-tab>
+      <!-- LOst lead code here -->
+     <mat-tab label="Lost Leads">
+              <div class="mat-elevation-z8">
+                <mat-form-field>
+                  <mat-label>Search</mat-label>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search" #input>
+              </mat-form-field>
+              <table mat-table [dataSource]="dataSource" matSort>
+                <!-- Name Column -->
+                  <ng-container matColumnDef="company_name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+                    <td mat-cell *matCellDef="let row"> {{row.company_name}} </td>
+                  </ng-container>
+            
+                <!-- Color Column -->
+                <ng-container matColumnDef="product">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                  <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.product}} </td>
+                </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_size">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Size </th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_size}} </td>
+              </ng-container>
+              <!-- Progress Column -->
+              <ng-container matColumnDef="product_dis">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Description</th>
+                  <td mat-cell *matCellDef="let row"> {{row.product_dis}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nextFollowUp">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> NextFollowUp </th>
+                  <td mat-cell *matCellDef="let row"> {{row.nextFollowUp}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+                </ng-container>
+                <ng-container matColumnDef="priorty">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Priorty </th>
+                  <td mat-cell *matCellDef="let row"> {{row.priorty}} </td>
+              </ng-container>
+                  <ng-container matColumnDef="owner">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> owner </th>
+                    <td mat-cell *matCellDef="let row"> {{row.owner}} </td>
+                </ng-container>
+
+                  <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Active </th>
+                    <td mat-cell *matCellDef="let element" class="action-link"> 
+                      <a class="btn-sm btn-info" [routerLink]="['/activity-details']" style="padding-left: 10px;">Activity</a>  
+                    </td>
+                  </ng-container>
+
+          
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                </tr>
+              </table>
+            
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            </div>
+            </mat-tab>
+          </mat-tab-group>
+      </div>
+    </div>
+  </div>

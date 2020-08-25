@@ -1,0 +1,236 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-header">
+                   <h5 class="card-title">Lead & Activity Details</h5>
+                </div>
+                <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                       <label class="control-label " for="oppurtinity"><b>Company Name:</b></label>
+                       <div class="form-group col-sm-8">
+                          <div  for="oppo_company_name">Monter Enterprises</div>
+                       </div>
+                    </div>
+                    <div class="form-group col-sm-3">
+                       <label class="control-label " for="oppurtinity"><b>Client Name:</b></label>
+                       <div class="form-group col-sm-8">
+                          <div  for="oppo_company_name">Girish Bhanot</div>
+                       </div>
+                    </div>
+                    <div class="form-group col-sm-3">
+                       <label class="control-label " for="oppurtinity"><b>Email:</b></label>
+                       <div class="form-group col-sm-8">
+                          <div  for="oppo_company_name">monter.tools@gmail.com</div>
+                       </div>
+                    </div>
+                    <div class="form-group col-sm-3">
+                       <label class="control-label " for="oppurtinity"><b>Mobile No:</b></label>
+                       <div class="form-group col-sm-8">
+                          <div  for="oppo_company_name"></div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="form-group col-sm-2">
+                       <label class="control-label " for="oppo_product"><b>Required Product Name:</b></label>
+                    </div>
+                    <div class="form-group col-sm-9">
+                       <div  for="Product Name">Canadian Solar</div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="form-group col-sm-2">
+                       <label class="control-label " for="oppurtinity"><b>Required Product Size:</b></label>
+                    </div>
+                    <div class="form-group col-sm-10">
+                       <div  for="oppurtinity">1-50 KW</div>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="form-group col-sm-2">
+                       <label class="control-label " for="oppurtinity"><b>Required Product Details:</b></label>
+                    </div>
+                    <div class="form-group col-sm-10">
+                       <div  for="oppurtinity">Requirement of Canadian Modules  </div>
+                    </div>
+                 </div>
+               
+             </div>
+            </div>
+            
+
+
+            <div class="card">
+                <div class="card-header">
+                   <h5 class="card-title">New Activity</h5>
+                </div>
+                <div class="card-body">
+
+
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                           <label class="control-label " for="activity">Activity<span style="color:red;">&nbsp;&nbsp;*</span></label>
+                           <div class=" selectContainer">
+                              <div class="input-group">
+                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                 <select type="dropdown" class="form-control  selectpicker" id="activity" name="activity" >
+                                    <option value="">Select Activity</option>
+                                    <option value="Meeting">Meeting</option>
+                                    <option value="Call">Call</option>
+                                    <option value="SMS">SMS</option>
+                                    <option value="Whatsapp">Whatsapp</option>
+                                    <option value="Email">Email</option>
+                                    <option value="Other">Other</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                           <label class="control-label " for="activity">Priority<span style="color:red;">&nbsp;&nbsp;*</span></label>
+                           <div class=" selectContainer">
+                              <div class="input-group">
+                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                 <select class="form-control" id="priority"  name="priority">
+                                    <option value="">Select One</option>
+                                    <option value="High">High</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Low">Low</option>
+                                    <option value="Dead">Dead</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="form-group col-sm-6">
+                           <label class="control-label " for="activity">Status<span style="color:red;">&nbsp;&nbsp;*</span></label>
+                           <div class=" selectContainer">
+                              <div class="input-group">
+                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                 <select class="form-control" id="status" placeholder="Enter Customer Name" name="status" required="">
+                                    <option value="">Select One</option>
+                                    <option value="Contacted">Contacted</option>
+                                    <option value="Follow Up">Follow Up</option>
+                                    <option value="Proposal">Proposal</option>
+                                    <option value="Closed">Closed</option>
+                                    <option value="Lost">Lost</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                           <label class="control-label " for="activity">Next Follow-up<span style="color:red;">&nbsp;&nbsp;*</span></label>
+                           <div class=" selectContainer">
+                              <div class="input-group">
+                                 <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                                 <input type="date" class="form-control  selectpicker" id="follow_up" name="follow_up" >
+                                 <input type="hidden" class="form-control  selectpicker" id="cust_id21" name="cust_id21" value="" >
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="control-label " for="remark"> Remark<span style="color:red;">&nbsp;&nbsp;*</span></label>
+                        <div >          
+                           <textarea class="form-control" name="remark" rows="3" id="remark"> </textarea>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <button type="submit"  name="submit" class="btn btn-danger btn-icon-text">
+                        <i class="mdi mdi-window-close btn-icon-prepend"></i>
+                        Close
+                        </button>
+                        <button type="submit"  name="submit"  class="btn btn-primary btn-icon-text">
+                        <i class="mdi mdi-content-save btn-icon-prepend"></i>
+                        Save 	
+                        </button>
+                     </div>
+
+               
+             </div>
+            </div>
+
+
+
+
+             <div class="card">
+                <div class="card-header">
+                   <h5 class="card-title"> Activity Details</h5>
+                </div>
+  
+                <div class="table-responsive">
+                    <table id="example2" class="table table-bordered table-hover">
+                       <thead style="background-color:#5D6264; color:white;">
+                          <tr>
+                             <th>Date</th>
+                             <th>Activity</th>
+                             <th>Next Follow Date</th>
+                             <th>Status</th>
+                             <th>Priority</th>
+                             <th>Remark</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                          <tr>
+                             <td>2020-06-22 03:31:38</td>
+                             <td>Call</td>
+                             <td>2020-06-30</td>
+                             <td>Follow Up</td>
+                             <td>Low</td>
+                             <td>end customer yet to confirm the order</td>
+                          </tr>
+                          <tr>
+                             <td>2020-06-25 06:19:18</td>
+                             <td>Call</td>
+                             <td>2020-06-25</td>
+                             <td>Contacted</td>
+                             <td>Low</td>
+                             <td> test</td>
+                          </tr>
+                          <tr>
+                             <td>2020-06-26 11:19:00</td>
+                             <td>Call</td>
+                             <td>2020-07-02</td>
+                             <td>Follow Up</td>
+                             <td>Low</td>
+                             <td>the end customer has not confirmed the order yet</td>
+                          </tr>
+                          <tr>
+                             <td>2020-07-16 05:38:46</td>
+                             <td>Call</td>
+                             <td>2020-07-21</td>
+                             <td>Follow Up</td>
+                             <td>Low</td>
+                             <td> order not confirmed yet from the end client</td>
+                          </tr>
+                          <tr>
+                             <td>2020-07-21 07:03:47</td>
+                             <td>Call</td>
+                             <td>2020-07-24</td>
+                             <td>Follow Up</td>
+                             <td>Low</td>
+                             <td> no response</td>
+                          </tr>
+                          <tr>
+                             <td>2020-07-30 06:53:39</td>
+                             <td>Call</td>
+                             <td>2020-08-14</td>
+                             <td>Follow Up</td>
+                             <td>Low</td>
+                             <td> customer has delayed due to financial issues, will take 2-3 weeks more to close</td>
+                          </tr>
+                       </tbody>
+                    </table>
+                 </div>
+               
+             </div>
+          </div>
+
+       </div>
+	   
+
+    </div>
+ </div>

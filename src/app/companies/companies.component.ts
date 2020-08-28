@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
+import {FormsModule} from '@angular/forms';
 import { MatTableDataSource} from '@angular/material/table';
 import { CompanyapiService } from '../companyapi.service';
-import { HttpClientModule } from '@angular/common/http';
-import { Companydetails } from 'src/companydetails';
+import { Companydetails,Users} from 'src/companydetails';
+import {Region,Source}from '../salespeson'
+
 
 @Component({
   selector: 'app-companies',
@@ -11,32 +12,56 @@ import { Companydetails } from 'src/companydetails';
   styleUrls: ['./companies.component.css']
 })
 export class CompaniesComponent implements OnInit {
+  UserSelected :number;
+  regionSelected: number;
+  sourceSelected:number;
 
-  ELEMENT_DATA : Companydetails[];
-  displayedColumns: string[]= ['id', 'name', 'email_primary', 'phone_primary', 'gstin', 'pan','lead', 'client','details'];
+  alluserData:Users[]; 
+  allRegion:Region[];
+  allSource:Source[];
+ data1:Companydetails[];
+  
+displayedColumns: string[]= ['id', 'name', 'email_primary', 'phone_primary', 'gstin', 'pan','lead', 'client','details'];
 
- dataSource = new MatTableDataSource<Companydetails>(this.ELEMENT_DATA);
- applyFilter(event: Event) {
-  const filterValue = (event.target as HTMLInputElement).value;
-  this.dataSource.filter = filterValue.trim().toLowerCase();
-}
+dataSource = new MatTableDataSource<Companydetails>(this.data1);
 
-
- constructor(private service:CompanyapiService) { }
-
+constructor(private service:CompanyapiService) { 
+   this.data1=new Array<any>();
+  
+ }
+  
  ngOnInit() {
-   this.getAllCompany();
+  this.getAllCompany();
+   this.getuser();
+   this.getRegion();
+   this.getSource();
  }
 
+ 
  public getAllCompany() {
      let resp = this.service.Companydetails();
-     resp.subscribe(Companydata=>this.dataSource.data=Companydata as Companydetails[])
-
+     resp.subscribe(dataSource=>this.dataSource=dataSource.results)
+      
    }
 
-  /*applyFilter(filterValue:string){
-    this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
-
-  }*/
-
+   applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
+  public getuser(){
+    let resp = this.service.AllUsers();
+    resp.subscribe(data=>this.alluserData=data.results);
+    
+   }
+   public getRegion(){
+    let resp = this.service.Allregion();
+    resp.subscribe(data=>this.allRegion=data.results);
+    console.log(this.allRegion);
+   }
+   public getSource(){
+    let resp = this.service.AllSource();
+    resp.subscribe(data=>this.allSource=data.results);
+    
+   }
 }

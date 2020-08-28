@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { CompanyapiService } from '../companyapi.service';
+import { Source, Region } from '../salespeson';
+import {FormsModule} from '@angular/forms';
+import { Users } from 'src/companydetails';
 
 export interface DataTableItem {
   customer_name: string;
@@ -31,15 +34,45 @@ const EXAMPLE_DATA: DataTableItem[] = [
   styleUrls: ['./bookinglist.component.css']
 })
 export class BookinglistComponent implements OnInit {
+
+  UserSelected :number;
+  regionSelected: number;
+  sourceSelected:number;
+
+  alluserData:Users[]; 
+  allRegion:Region[];
+  allSource:Source[];
+
+
   displayedColumns = ['customer_name', 'warehouse','product','model','qty','date','sales_person'];
   dataSource = new MatTableDataSource(EXAMPLE_DATA); 
-  constructor() { }
+  constructor(private service:CompanyapiService) { }
 
   ngOnInit(): void {
+    this.getuser();
+   this.getRegion();
+   this.getSource();
   }
 
   applyFilter(filterValue:string){
     this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
 
   }
+
+
+  public getuser(){
+    let resp = this.service.AllUsers();
+    resp.subscribe(data=>this.alluserData=data.results);
+    
+   }
+   public getRegion(){
+    let resp = this.service.Allregion();
+    resp.subscribe(data=>this.allRegion=data.results);
+    console.log(this.allRegion);
+   }
+   public getSource(){
+    let resp = this.service.AllSource();
+    resp.subscribe(data=>this.allSource=data.results);
+    
+   }
 }

@@ -25,6 +25,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { CompanyClientsComponent } from './company-clients/company-clients.component';
 import { ActivityDetailsComponent } from './activity-details/activity-details.component';
 import { ClientsComponent } from './clients/clients.component';
+import { DatePipe } from '@angular/common';
+import {DashboardService} from './services/dashboard.service';
+import {CompanyapiService} from  './companyapi.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +59,7 @@ import { ClientsComponent } from './clients/clients.component';
     MatNativeDateModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [DatePipe,DashboardService,CompanyapiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,95 +13,103 @@
             <div class="mat-elevation-z8">
 
             
-            <div class="row">
-              <div class="col-lg-2">
-                <mat-form-field>
-                  <mat-label>Filter</mat-label>
-                  <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
-                </mat-form-field>
-              </div>
-              <div class="col-lg-2" >
-                  <mat-form-field class="example-full-width">
-                  <input matInput [matDatepicker]="dp1" placeholder="Choose a date">
-                      <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
-                      <mat-datepicker #dp1></mat-datepicker>
-                  </mat-form-field>
-              </div><br/>
-              <div class="col-lg-2">
-                  <mat-form-field appearance="fill" class="inputb">
-                      <mat-label>Region</mat-label>
-                      <mat-select disableRipple>
-                      <mat-option value="1" >Maharashtra</mat-option>
-                      <mat-option value="2">Delhi</mat-option>
-                      <mat-option value="3">Up/Punjab</mat-option>
-                      <mat-option value="3">Rajesthan</mat-option>
-                      <mat-option value="3">South</mat-option>
-                      </mat-select>
-                   </mat-form-field>
-              </div>
-              <div class="col-lg-2">
-                  <mat-form-field appearance="fill" class="inputb">
-                      <mat-label>Source</mat-label>
-                      <mat-select disableRipple>
-                      <mat-option value="1" >Email</mat-option>
-                      <mat-option value="2">Facebook</mat-option>
-                      <mat-option value="3">You tube</mat-option>
-                      </mat-select>
-                   </mat-form-field>
-              </div>
-              <div class="col-lg-2">
-                  <mat-form-field appearance="fill" class="inputb">
-                      <mat-label>Manufacturer</mat-label>
-                      <mat-select disableRipple>
-                      <mat-option value="1" >Canadian Solar</mat-option>
-                      <mat-option value="2">Renewsys</mat-option>
-                      <mat-option value="3">Fronius</mat-option>
-                      </mat-select>
-                   </mat-form-field>
-              </div>
-              <div class="col-lg-2">
-                  <mat-form-field appearance="fill" class="inputb">
-                      <mat-label>Sales Person</mat-label>
-                      <mat-select disableRipple>
-                      <mat-option value="1" >Amit sharma</mat-option>
-                      <mat-option value="2">Anisha Paul</mat-option>
-                      <mat-option value="3">Bijoy</mat-option>
-                      </mat-select>
-                   </mat-form-field>
-              </div>
-        </div>
-            <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <div class="row" style="padding: 10px;">
+                          <div class="col-lg-2">
+                            <mat-form-field>
+                              <mat-label>Search</mat-label>
+                              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                            </mat-form-field>
+                          </div>
+                        
+                          <div class="col-lg-2" >
+                            <mat-form-field appearance="fill" style="width: 200px;">
+                                <mat-date-range-input [rangePicker]="picker">
+                                  <input matStartDate placeholder="Start date" />
+                                  <input matEndDate placeholder="End date" />
+                                </mat-date-range-input>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-date-range-picker #picker></mat-date-range-picker>
+                            </mat-form-field>    
+                              
+                          </div><br/>
+                          <div class="col-lg-2">
+                                <mat-form-field appearance="fill" class="inputb">
+                                  <mat-label>Region</mat-label>
+                                  <mat-select [(ngModel)]='regionSelected'>
+                                  <mat-option *ngFor="let user of allRegion" [value]= "user.id">
+                                    {{user.name}}
+                                  </mat-option>
+                                  
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+                          <div class="col-lg-2">
+                            <mat-form-field appearance="fill" class="inputb">
+                                <mat-label>Source</mat-label>
+                                <mat-select [(ngModel)]='sourceSelected'>
+                                <mat-option *ngFor="let user of allSource" [value]= "user.id">
+                                  {{user.source}}
+                                </mat-option>
+                                
+                                </mat-select>
+                            </mat-form-field>
+                          </div>
+                          <div class="col-lg-2">
+                              <mat-form-field appearance="fill" class="inputb">
+                                  <mat-label>Manufacturer</mat-label>
+                                  <mat-select disableRipple>
+                                  <mat-option value="1" >Canadian Solar</mat-option>
+                                  <mat-option value="2">Renewsys</mat-option>
+                                  <mat-option value="3">Fronius</mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+                          <div class="col-lg-2">
+                            <!-- (ngModelChange) = 'onAlbumSelected($event)' -->
+                              <mat-form-field appearance="fill" class="inputb">
+                                  <mat-label>Sales Person</mat-label>
+                                  <mat-select [(ngModel)]='UserSelected'>
+                                  <mat-option *ngFor="let user of alluserData" [value]= "user.id">
+                                    {{user.first_name}}
+                                  </mat-option>
+                                  
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+                    </div>
+                  
+            <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
               <!-- Position Column -->
 
               <ng-container matColumnDef="id">
-                <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
               </ng-container>
 
 
               <!-- Name Column -->
               <ng-container matColumnDef="email_primary">
-                <mat-header-cell *matHeaderCellDef> Primary Email </mat-header-cell>
+                <mat-header-cell mat-sort-header *matHeaderCellDef> Primary Email </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.email_primary}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="phone_primary">
-                <mat-header-cell *matHeaderCellDef> Primary Phone </mat-header-cell>
+                <mat-header-cell mat-sort-header *matHeaderCellDef> Primary Phone </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.phone_primary}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="pan">
-                <mat-header-cell *matHeaderCellDef> PAN </mat-header-cell>
+                <mat-header-cell mat-sort-header *matHeaderCellDef> PAN </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.pan}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="gstin">
-                <mat-header-cell *matHeaderCellDef> GSTIN </mat-header-cell>
+                <mat-header-cell mat-sort-header *matHeaderCellDef> GSTIN </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.gstin}} </mat-cell>
               </ng-container>
 
@@ -109,19 +117,19 @@
               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
             <ng-container matColumnDef="lead">
-              <mat-header-cell *matHeaderCellDef> Lead </mat-header-cell>
+              <mat-header-cell mat-sort-header *matHeaderCellDef> Lead </mat-header-cell>
               <mat-cell *matCellDef="let element" class="action-link">
                   <button mat-raised-button color="primary" [routerLink]="['/smartview']">+Leads</button>
               </mat-cell>
             </ng-container>
             <ng-container matColumnDef="client">
-              <mat-header-cell *matHeaderCellDef> Client </mat-header-cell>
+              <mat-header-cell mat-sort-header *matHeaderCellDef> Client </mat-header-cell>
               <mat-cell *matCellDef="let element" class="action-link">
                   <button mat-raised-button color="primary" [routerLink]="['/clients']">+Clients</button>
               </mat-cell>
             </ng-container>
             <ng-container matColumnDef="details">
-              <mat-header-cell *matHeaderCellDef> Details </mat-header-cell>
+              <mat-header-cell mat-sort-header *matHeaderCellDef> Details </mat-header-cell>
               <mat-cell *matCellDef="let element" class="action-link">
                 <button mat-raised-button color="primary" [routerLink]="['/addcompany']">+Details</button>
               </mat-cell>
